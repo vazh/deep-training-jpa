@@ -1,8 +1,11 @@
 package id.co.asyst.deep.training.springdatajpa.entity;
 
-import jakarta.persistence.Column;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -10,7 +13,6 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.io.Serializable;
-import java.util.UUID;
 
 @Entity
 @Table
@@ -18,21 +20,16 @@ import java.util.UUID;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class Country implements Serializable {
+public class CityRegency implements Serializable {
+
     @Id
     private String id;
+
+    @ManyToOne
+    private Province province;
+
     private String name;
-    private String phoneCode;
 
-    @Column(unique = true)
-    private String isoCode2;
-
-    @Column(unique = true)
-    private String isoCode3;
-
-    @Column(unique = true)
-    private String numCode;
-
-    @Column(unique = true)
-    private String tld;
+    @Enumerated(EnumType.STRING)
+    private CityRegencyType type;
 }
