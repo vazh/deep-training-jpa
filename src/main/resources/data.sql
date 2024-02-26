@@ -41,3 +41,11 @@ VALUES (gen_random_uuid(), '31', 'Jakarta Utara', 'KOTA'),
        (gen_random_uuid(), '33', 'Surakarta', 'KOTA'),
        (gen_random_uuid(), '31', 'Jakarta Selatan', 'KOTA'),
        (gen_random_uuid(), '31', 'Jakarta Selatan', 'KOTA');
+
+INSERT INTO hobby(id, name)
+VALUES (1, 'Sepeda'),
+       (2, 'Berenang'),
+       (3, 'Berkuda'),
+       (4, 'Balapan'),
+       (5, 'Memanah'),
+       (6, 'Rebahan');
