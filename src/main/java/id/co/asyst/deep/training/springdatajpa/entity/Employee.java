@@ -7,7 +7,6 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.JoinTable;
 import jakarta.persistence.ManyToMany;
-import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -30,10 +29,10 @@ public class Employee implements Serializable {
     private String name;
 
     @ManyToMany
-//    @JoinTable(
-//        name = "employee_hobbies",
-//        joinColumns = @JoinColumn(name = "employee_id"),
-//        inverseJoinColumns = @JoinColumn(name = "hobby_id")
-//    )
+    @JoinTable(
+        name = "employee_hobbies",
+        joinColumns = @JoinColumn(name = "employee_id"),
+        inverseJoinColumns = @JoinColumn(name = "hobby_id")
+    )
     private Set<Hobby> hobbies;
 }
